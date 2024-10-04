@@ -1,1 +1,11 @@
+sequenceDiagram
+    participant browser
+    participant server
 
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_notes_spa (contains de note as json data)
+    activate server
+    server-->>browser: Status Code: 201 Created
+    deactivate server
+
+    The server doesn't request a redirect
+    The browser stays on the same page and doesn't send any more HTTP requests
